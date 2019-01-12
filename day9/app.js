@@ -14,12 +14,18 @@ console.log(intersection);
 //---------------------------------------------------------------------------------
 
 const express = require('express');
+const bodyParser = require('body-parser');
 
 var app = express();
 
 app.get(['apple', 'ale'], (req, res) => res.send("Apple or Ale?"));
 app.get(/wh(o+)(a+)/, (req, res) => res.send("I know, right?!"));
-app.get(['/','/hello', '/hi', '/hola'], (req, res) => res.send('hello!'))
+
+app.get(['/','/hello', '/hi', '/hola'], (req, res) => {
+    console.log('hit query route', req.query.name)
+    res.send(`hello ${req.query.name}`);
+})
+
 app.get('/name/:name',(req, res) => {
     let greetings = ["Wassup", "Good morning"];
     let [first, last] = req.params.name.split(' ');
