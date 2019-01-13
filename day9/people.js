@@ -1,9 +1,17 @@
 const fs = require('fs');
 
-var people = JSON.parse(fs.readFileSync('people.json')).people;
-var people2 = JSON.parse(fs.readFileSync('people2.json')).people;
+const readppl = (filename) => JSON.parse(fs.readFileSync(filename)).people;
 
+var people = readppl('people.json');
+var people2 = readppl('people2.json');
 var sorted = people.concat(people2).sort()
-console.log(sorted)
-
 fs.writeFile("peopleComplete.txt", sorted, (err) => err ? console.log(err) : console.log("done"))
+
+//bonus
+var files = fs.readdirSync('./people/');
+var fullPpl = files.reduce((acc, val) => acc.concat(readppl(`./people/${val}`)),[])
+let peopleComplete = JSON.stringify({
+    people: fullPpl
+})
+
+fs.writeFile("peopleComplete.json", peopleComplete, (err) => err ? console.log(err) : console.log("finished bonus"))
