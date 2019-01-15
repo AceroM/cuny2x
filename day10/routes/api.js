@@ -1,5 +1,6 @@
 const client = require('../client');
 const router = require('express').Router();
+const { Input } = require('../models')
 module.exports = router;
 
 // console.log in the terminal the rows returned from getting all of the entries in the input table, and send the rows back via the http response body.

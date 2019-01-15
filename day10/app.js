@@ -6,11 +6,9 @@ const client = require('./client');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use('/api', require('./routes/api'))
 
 // for parsing JSON Derulo
-
 
 const PORT = process.env.PORT;
 
