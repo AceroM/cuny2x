@@ -4,6 +4,13 @@ const db = require('./config/database');
 const http=require("http");
 const app = express();
 
+const cors = require('cors')
+const corsOptions = {
+    credentials: true,
+    origin: true
+}
+
+app.use(cors(corsOptions))
 //for parsing JSON Derulo
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

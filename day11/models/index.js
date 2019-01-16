@@ -6,8 +6,8 @@ const Campuses = require('./Campuses');
 Users.hasMany(Hats, {foreignKey: 'userId'});
 Hats.belongsTo(Users, {foreignKey: 'userId'});
 
-Students.belongsTo(Campuses);
-Campuses.hasMany(Students);
+// Students.belongsTo(Campuses);
+// Campuses.hasMany(Students);
 
 Hats.sync()
     .then(() => console.log("Hats synced!"))

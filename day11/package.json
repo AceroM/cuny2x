@@ -9,10 +9,16 @@
   "author": "AceroM",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "http": "0.0.0",
     "nodemon": "^1.18.9",
     "pg": "^7.8.0",
     "sequelize": "^4.42.0"
-  }
+  },
+  "devDependencies": {
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1"
+  },
+  "keywords": []
 }
